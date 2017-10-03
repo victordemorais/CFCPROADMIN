@@ -1,0 +1,118 @@
+<div id="conteudo">
+  <div class="article principal">
+    <label class="header-article">Cadastrar Usuário</label>
+
+    <div id="formQuestion">
+      <form [formGroup]="UserForm" name="UserForm" novalidate>
+        {{UserForm.value | json}}
+
+        <label><span>Nome</span>
+              <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+                <input formControlName="name" placeholder="Nome" autocomplete="off">
+              </pro-input-container>
+            </label>
+
+        <div class="mid">
+          <div class="mid-container-2">
+            <label><span>RG</span>
+                  <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="rg">
+                    <input type="tel" formControlName="rg" placeholder="000.000-00" autocomplete="off" [brmasker]="{mask:'000.000-00', len:10}" >
+                  </pro-input-container>
+                </label>
+          </div>
+          <div class="mid-container-2">
+            <label><span>CPF</span>
+                    <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cpf">
+                      <input type="tel" formControlName="cpf" placeholder="000.000.000-00" autocomplete="off" [brmasker]="{mask:'000.000.000-00', len:14}" >
+                    </pro-input-container>
+                  </label>
+          </div>
+        </div>
+
+        <div class="mid">
+          <div class="mid-container-3">
+            <label><span>CEP</span>
+                        <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cep">
+                          <input type="tel" formControlName="cep" placeholder="00.000.000" autocomplete="off" [brmasker]="{mask:'00.000.000', len:10}" maxlength="10" >
+                        </pro-input-container>
+                      </label>
+          </div>
+
+          <div class="mid-container-3">
+            <label><span>Num</span>
+                    <pro-input-container label="num">
+                      <input type="tel" formControlName="num" placeholder="000" autocomplete="off"  >
+                    </pro-input-container>
+                  </label>
+          </div>
+          <div class="mid-container-3">
+            <label><span>Comp</span>
+                    <pro-input-container>
+                      <input type="text" formControlName="comp" placeholder="Casa / Apartamento" autocomplete="off">
+                    </pro-input-container>
+                  </label>
+          </div>
+        </div>
+
+        <label><span>Rua / Av</span>
+          <pro-input-container >
+            <input formControlName="address" placeholder="ex: Rua / Av xxxxxxxxx" autocomplete="off" disabled>
+          </pro-input-container>
+        </label>
+
+        <div class="mid">
+          <div class="mid-container-3">
+            <label><span>Telefone</span>
+                        <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="tel">
+                          <input type="tel" formControlName="tel" placeholder="(00)0000-0000" autocomplete="off" [brmasker]="{mask:'(00)0000-0000', len:13}" >
+                        </pro-input-container>
+                      </label>
+          </div>
+
+          <div class="mid-container-3">
+            <label><span>Celular</span>
+                    <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cel">
+                      <input type="tel" formControlName="cel" placeholder="(00)00000-0000" autocomplete="off"  [brmasker]="{mask:'(00)00000-0000', len:12}">
+                    </pro-input-container>
+                  </label>
+          </div>
+          <div class="mid-container-3">
+            <label><span>Outro</span>
+                    <pro-input-container>
+                      <input type="text" formControlName="telOpc"  placeholder="" autocomplete="off">
+                    </pro-input-container>
+                  </label>
+          </div>
+
+        </div>
+
+        <div class="mid">
+          <div class="mid-container-3">
+            <label><span>Pagamento</span>
+                          <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="pgt">
+                            <input type="tel" formControlName="pgt" placeholder="(00)0000-0000" autocomplete="off" [brmasker]="{mask:'(00)0000-0000', len:13}" >
+                          </pro-input-container>
+                        </label>
+          </div>
+
+          <div class="mid-container-3">
+            <label><span>Início</span>
+                      <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="inicio">
+                        <input type="text" formControlName="inicio" >
+                      </pro-input-container>
+                    </label>
+          </div>
+          <div class="mid-container-3">
+            <label><span>Categ.</span>
+                      <pro-input-container >
+                        <input type="text" formControlName="categ" placeholder="" autocomplete="off">
+                      </pro-input-container>
+                    </label>
+          </div>
+        </div>
+
+        <input type="submit" [disabled]="!UserForm.valid" value="teste" (click)="checkUser(UserForm.value)">
+      </form>
+    </div>
+  </div>
+</div>

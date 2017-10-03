@@ -1,0 +1,18 @@
+<div id="topo">
+  <header>Dashboard</header>
+</div>
+<nav id="side-bar">
+  <header>CFC PRO ADMIN v1</header>
+  <ul>
+    <li><a [routerLink]="['/']"><i class="fa fa-desktop" aria-hidden="true"></i><span>Dashboard</span></a></li>
+    <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span>Usuários</span> <i class="fa fa-caret-down icon-right" aria-hidden="true"></i></a>
+      <ul class="drop">
+          <li><a [routerLink]="['user/cadastrar']"><i class="fa fa-desktop" aria-hidden="true"></i><span>Cadastrar</span></a></li>
+          <li><a [routerLink]="['users']"><i class="fa fa-desktop" aria-hidden="true"></i><span>Visualizar Todos</span></a></li>
+        </ul>
+    </li>
+    <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span>Veículos</span></a></li>
+    <li><a [routerLink]="['horarios']"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Horários</span></a></li>
+    <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span>Logout</span></a></li>
+  </ul>
+</nav>

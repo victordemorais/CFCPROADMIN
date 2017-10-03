@@ -1,0 +1,33 @@
+<div id="conteudo">
+    <div class="principal article">
+      <span class="header-article">Usuários</span>
+  
+      <table class="layout display responsive-table">
+        <thead>
+          <tr>
+            <th>Cod.</th>
+            <th >Nome</th>
+            <th >CPF</th>
+            <th >Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user.user_id}}</td>
+            <td>
+                {{user.nome}}
+            </td>
+            <td>
+                {{user.cpf | filterCPF}}
+            </td>
+            
+            <td class="actions">
+              <a (click)="editUser(user)" class="edit-item" title="Editar">Editar</a>
+              <a href="?" class="remove-item" title="Remover">Remover</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
