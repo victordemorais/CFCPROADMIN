@@ -1,1 +1,1 @@
-export const PRO_API = 'http://localhost/testeaula/server/public'
+export const PRO_API = 'http://localhost/testeaula/server/public';

@@ -1,5 +1,5 @@
 import { UserService } from './../users/user.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
@@ -10,10 +10,10 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
         FormsModule, ReactiveFormsModule]
 })
 export class SharedModule {
-    static forRoot():ModuleWithProviders {
+    static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
             providers: [UserService]
-        }
+        };
     }
 }

@@ -17,12 +17,12 @@ export class UserService {
 
   }
   cadastraUser(user: UserModel): Observable<any> {
-   
-    return this.http.post(`${PRO_API}/usuarios/create`,JSON.stringify(user))
+
+    return this.http.post(`${PRO_API}/usuarios/create`, JSON.stringify(user));
   }
-  address(cep:string): Observable<any> {
-    const headers = new Headers()
-    headers.append('Content-Type', 'application/json')
-    return this.http.get(`http://api.postmon.com.br/v1/cep/${cep}`)
+  address(cep: string): Observable<any> {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`http://api.postmon.com.br/v1/cep/${cep}`);
   }
 }

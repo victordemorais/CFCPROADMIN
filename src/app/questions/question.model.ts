@@ -1,7 +1,7 @@
-export class Question{
+export class Question {
     constructor(
-        public nome:string,
-        public email:string,
-        public senha:string,
-    ){}
+        public nome: string,
+        public email: string,
+        public senha: string,
+    ) {}
 }

@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   { path: 'user/cadastrar', component: CreateUserComponent },
   { path: 'horarios', component: HorariosComponent }
-  
+
 
 
 ];

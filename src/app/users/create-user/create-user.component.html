@@ -16,14 +16,14 @@
           <div class="mid-container-2">
             <label><span>RG</span>
                   <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="rg">
-                    <input type="tel" formControlName="rg" placeholder="000.000-00" autocomplete="off" [brmasker]="{mask:'000.000-00', len:10}" >
+                    <input type="tel" formControlName="rg" placeholder="000.000-00" autocomplete="off" proMask="00.000-000">
                   </pro-input-container>
                 </label>
           </div>
           <div class="mid-container-2">
             <label><span>CPF</span>
                     <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cpf">
-                      <input type="tel" formControlName="cpf" placeholder="000.000.000-00" autocomplete="off" [brmasker]="{mask:'000.000.000-00', len:14}" >
+                      <input type="tel" formControlName="cpf" placeholder="000.000.000-00" autocomplete="off" proMask="000.000.000-00">
                     </pro-input-container>
                   </label>
           </div>
@@ -33,7 +33,7 @@
           <div class="mid-container-3">
             <label><span>CEP</span>
                         <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cep">
-                          <input type="tel" formControlName="cep" placeholder="00.000.000" autocomplete="off" [brmasker]="{mask:'00.000.000', len:10}" maxlength="10" >
+                          <input type="tel" formControlName="cep" placeholder="00.000.000" autocomplete="off"  maxlength="10" input type="text" proMask="00000-000" maxlength="9">
                         </pro-input-container>
                       </label>
           </div>
@@ -64,7 +64,7 @@
           <div class="mid-container-3">
             <label><span>Telefone</span>
                         <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="tel">
-                          <input type="tel" formControlName="tel" placeholder="(00)0000-0000" autocomplete="off" [brmasker]="{mask:'(00)0000-0000', len:13}" >
+                          <input type="tel" formControlName="tel" placeholder="(00)0000-0000" autocomplete="off"  proMask="(00)0000-0000">
                         </pro-input-container>
                       </label>
           </div>
@@ -72,7 +72,7 @@
           <div class="mid-container-3">
             <label><span>Celular</span>
                     <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cel">
-                      <input type="tel" formControlName="cel" placeholder="(00)00000-0000" autocomplete="off"  [brmasker]="{mask:'(00)00000-0000', len:12}">
+                      <input type="tel" formControlName="cel" placeholder="(00)00000-0000" autocomplete="off"  proMask="(00)0000-0000">
                     </pro-input-container>
                   </label>
           </div>
@@ -90,7 +90,7 @@
           <div class="mid-container-3">
             <label><span>Pagamento</span>
                           <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="pgt">
-                            <input type="tel" formControlName="pgt" placeholder="(00)0000-0000" autocomplete="off" [brmasker]="{mask:'(00)0000-0000', len:13}" >
+                            <input type="tel" formControlName="pgt" placeholder="(00)0000-0000" autocomplete="off">
                           </pro-input-container>
                         </label>
           </div>

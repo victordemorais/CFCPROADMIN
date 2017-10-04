@@ -1,11 +1,12 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { AppMaskerModule } from 'brmasker';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './users/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import { FiltroPipe } from './filters/filtro.pipe';
 import { InputComponent } from './shared/input/input.component';
 import { HorariosComponent } from './horarios/horarios.component';
+import { MaskDirective } from './mask.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +28,10 @@ import { HorariosComponent } from './horarios/horarios.component';
     CreateUserComponent,
     UsersComponent,
     FiltroPipe,
-    HorariosComponent
+    HorariosComponent,
+    MaskDirective
   ],
   imports: [
-    AppMaskerModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserModule,
