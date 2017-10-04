@@ -1,3 +1,4 @@
+import { CalendarModule } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
@@ -19,6 +20,7 @@ import { FiltroPipe } from './filters/filtro.pipe';
 import { InputComponent } from './shared/input/input.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { MaskDirective } from './mask.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +38,9 @@ import { MaskDirective } from './mask.directive';
     ReactiveFormsModule,
     BrowserModule,
     SharedModule.forRoot(),
+    AppRoutingModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    CalendarModule.forRoot()
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
