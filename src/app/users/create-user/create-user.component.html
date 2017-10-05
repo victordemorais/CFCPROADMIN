@@ -7,7 +7,7 @@
         {{UserForm.value | json}}
 
         <label><span>Nome</span>
-              <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+              <pro-input-container errorMessage="Campo obrigatório,no mínimo 2 caracteres" label="Nome">
                 <input formControlName="name" placeholder="Nome" autocomplete="off">
               </pro-input-container>
             </label>
@@ -15,14 +15,14 @@
         <div class="mid">
           <div class="mid-container-2">
             <label><span>RG</span>
-                  <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="rg">
+                  <pro-input-container errorMessage="Campo obrigatório" label="rg">
                     <input type="tel" formControlName="rg" placeholder="000.000-00" autocomplete="off" proMask="00.000-000">
                   </pro-input-container>
                 </label>
           </div>
           <div class="mid-container-2">
             <label><span>CPF</span>
-                    <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cpf">
+                    <pro-input-container errorMessage="Campo obrigatório e com 11 caracteres" label="cpf">
                       <input type="tel" formControlName="cpf" placeholder="000.000.000-00" autocomplete="off" proMask="000.000.000-00">
                     </pro-input-container>
                   </label>
@@ -32,15 +32,15 @@
         <div class="mid">
           <div class="mid-container-3">
             <label><span>CEP</span>
-                        <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="cep">
-                          <input type="tel" formControlName="cep" placeholder="00.000.000" autocomplete="off"  maxlength="10" input type="text" proMask="00000-000" maxlength="9">
+                        <pro-input-container errorMessage="Campo obrigatório e com 8 caracteres" label="cep">
+                          <input type="tel" formControlName="cep" placeholder="00000-000" autocomplete="off" proMask="00000-000">
                         </pro-input-container>
                       </label>
           </div>
 
           <div class="mid-container-3">
             <label><span>Num</span>
-                    <pro-input-container label="num">
+                    <pro-input-container label="num" errorMessage="Campo obrigatório">
                       <input type="tel" formControlName="num" placeholder="000" autocomplete="off"  >
                     </pro-input-container>
                   </label>
@@ -56,10 +56,35 @@
 
         <label><span>Rua / Av</span>
           <pro-input-container >
-            <input formControlName="address" placeholder="ex: Rua / Av xxxxxxxxx" autocomplete="off" disabled>
+            <input formControlName="address" autocomplete="off" disabled>
           </pro-input-container>
         </label>
 
+        <div class="mid">
+          <div class="mid-container-3">
+            <label><span>Bairro</span>
+                        <pro-input-container>
+                          <input type="text" formControlName="bairro" autocomplete="off"  disabled>
+                        </pro-input-container>
+                      </label>
+          </div>
+
+          <div class="mid-container-3">
+            <label><span>Cidade</span>
+                    <pro-input-container>
+                      <input type="text" formControlName="cidade" autocomplete="off"  disabled>
+                    </pro-input-container>
+                  </label>
+          </div>
+          <div class="mid-container-3">
+            <label><span>Estado</span>
+                    <pro-input-container>
+                      <input type="text" formControlName="uf" autocomplete="off" disabled>
+                    </pro-input-container>
+                  </label>
+          </div>
+
+        </div>
         <div class="mid">
           <div class="mid-container-3">
             <label><span>Telefone</span>
@@ -111,7 +136,7 @@
           </div>
         </div>
 
-        <input type="submit" [disabled]="!UserForm.valid" value="teste" (click)="checkUser(UserForm.value)">
+        <input type="submit" [disabled]="!UserForm.valid" value="Cadastrar" (click)="checkUser(UserForm.value)">
       </form>
     </div>
   </div>

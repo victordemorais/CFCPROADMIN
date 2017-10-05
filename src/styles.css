@@ -37,6 +37,7 @@ button{outline: 0;}
     width: 210px;
     height: 100%;
     position: fixed;
+    z-index:1;
 }
 #side-bar header{
     box-sizing: border-box;
@@ -80,6 +81,7 @@ button{outline: 0;}
    color:#fff;
     width: 100%;
     position:fixed;
+    z-index:1;
 }
 #topo header{
     height:60px;
@@ -87,7 +89,6 @@ button{outline: 0;}
     width: 100%;
     float:left;
     color:#D8D8D8;
-    font-size: 300;
     padding:20px;
 }
 #conteudo{
@@ -199,11 +200,12 @@ input:focus,select:focus,textarea:focus{
     border: 1px solid #3f51b5;
 }
 
- input[type=submit],input[type=button]{
+ input[type=submit],input[type=button], button{
+     cursor: pointer;
      width: initial !important;
     border: none;
     padding: 8px 15px 8px 15px;
-    background: #FF8500;
+    background: #3f51b5;
     color: #fff;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
@@ -213,8 +215,9 @@ input:focus,select:focus,textarea:focus{
     -moz-border-radius: 3px;
 }
 #formQuestion input[type=submit]:hover,
-#formQuestion input[type=button]:hover{
-    background: #EA7B00;
+#formQuestion input[type=button]:hover,
+ button:hover{
+    background: #303f9f;
     color: #fff;
 }
 .drop  {
@@ -318,4 +321,19 @@ table.responsive-table{
         background: none;
     }
 }
-
+.direita{
+    float:left;
+    
+}
+.esquerda{
+    float:right;
+}
+.header-center{
+    width:100%;
+    float:left;
+    text-align: center;
+}
+.cabecalho{
+    width:100%;
+    float:left;
+}

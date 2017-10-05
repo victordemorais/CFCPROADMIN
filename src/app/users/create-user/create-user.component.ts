@@ -28,11 +28,15 @@ export class CreateUserComponent implements OnInit {
       name: this.formBuilder.control('', [Validators.required, Validators.minLength(3)]),
       rg: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       cpf: this.formBuilder.control('', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]),
-      cep: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+      cep: this.formBuilder.control('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
       num: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
       tel: this.formBuilder.control('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
       cel: this.formBuilder.control('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
-      address: this.formBuilder.control(''),
+      address: this.formBuilder.control('', Validators.required),
+      bairro: this.formBuilder.control('', Validators.required),
+     
+      cidade: this.formBuilder.control('', Validators.required),
+      uf: this.formBuilder.control('', Validators.required),
       inicio: this.formBuilder.control(''),
       comp: this.formBuilder.control(''),
       telOpc: this.formBuilder.control(''),
@@ -45,7 +49,13 @@ export class CreateUserComponent implements OnInit {
     .distinctUntilChanged()
     .switchMap(searchAddress => this.userService.address(searchAddress.replace(/[^0-9]+/g, ''))
     .catch(error => Observable.from([])))
-    .subscribe(searchAddress => this.UserForm.controls['address'].setValue(searchAddress.logradouro) );
+    .subscribe(
+      searchAddress => {this.UserForm.controls['address'].setValue(searchAddress.logradouro), 
+      this.UserForm.controls['uf'].setValue(searchAddress.estado_info.nome),
+      this.UserForm.controls['bairro'].setValue(searchAddress.bairro),
+      this.UserForm.controls['cidade'].setValue(searchAddress.cidade)
+    }
+   );
 
   }
 

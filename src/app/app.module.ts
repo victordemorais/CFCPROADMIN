@@ -20,6 +20,7 @@ import { FiltroPipe } from './filters/filtro.pipe';
 import { InputComponent } from './shared/input/input.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { MaskDirective } from './mask.directive';
+import { CalendarComponent } from './horarios/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MaskDirective } from './mask.directive';
     UsersComponent,
     FiltroPipe,
     HorariosComponent,
-    MaskDirective
+    MaskDirective,
+    CalendarComponent
   ],
   imports: [
     HttpClientModule,

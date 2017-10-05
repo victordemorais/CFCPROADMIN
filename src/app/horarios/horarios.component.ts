@@ -1,5 +1,4 @@
-import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
-import { CalendarEvent } from 'angular-calendar';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'pro-horarios',
@@ -7,13 +6,6 @@ import { CalendarEvent } from 'angular-calendar';
   styleUrls: ['./horarios.component.css']
 })
 export class HorariosComponent implements OnInit {
-  view: string = 'month';
-  
-    viewDate: Date = new Date();
-  
-    events: CalendarEvent[] = [];
-  
-    clickedDate: Date;
   constructor() { }
 
   ngOnInit() {
