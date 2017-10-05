@@ -1,5 +1,3 @@
-import { UserModel } from './user.model';
-import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,19 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-constructor(private userService: UserService) {
+constructor() {
 
 }
- users: UserModel[];
   ngOnInit() {
-    this.userService.users()
-    .subscribe(
-      users => this.users = users
-    );
-  }
-
-  editUser(user) {
-    console.log(user);
+   
   }
 
 }

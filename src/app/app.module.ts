@@ -1,3 +1,4 @@
+import { UsersModule } from './users/users.module';
 import { CalendarModule } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { InputComponent } from './shared/input/input.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { MaskDirective } from './mask.directive';
 import { CalendarComponent } from './horarios/calendar/calendar.component';
+import { ListUsersComponent } from './users/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -28,20 +30,18 @@ import { CalendarComponent } from './horarios/calendar/calendar.component';
     NavComponent,
     HomeComponent,
     CreateComponent,
-    CreateUserComponent,
-    UsersComponent,
-    FiltroPipe,
     HorariosComponent,
     MaskDirective,
-    CalendarComponent
+    CalendarComponent,
   ],
   imports: [
     HttpClientModule,
     ReactiveFormsModule,
     BrowserModule,
-    SharedModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
+    UsersModule,
+    SharedModule.forRoot(),
     CalendarModule.forRoot()
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
