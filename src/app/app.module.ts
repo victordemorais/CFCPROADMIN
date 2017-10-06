@@ -20,7 +20,6 @@ import { UsersComponent } from './users/users.component';
 import { FiltroPipe } from './filters/filtro.pipe';
 import { InputComponent } from './shared/input/input.component';
 import { HorariosComponent } from './horarios/horarios.component';
-import { MaskDirective } from './mask.directive';
 import { CalendarComponent } from './horarios/calendar/calendar.component';
 import { ListUsersComponent } from './users/list-users/list-users.component';
 
@@ -31,7 +30,6 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
     HomeComponent,
     CreateComponent,
     HorariosComponent,
-    MaskDirective,
     CalendarComponent,
   ],
   imports: [

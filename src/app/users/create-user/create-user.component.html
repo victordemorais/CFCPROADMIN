@@ -33,7 +33,7 @@
           <div class="mid-container-3">
             <label><span>CEP</span>
                         <pro-input-container errorMessage="Campo obrigatório e com 8 caracteres" label="cep">
-                          <input type="tel" formControlName="cep" placeholder="00000-000" autocomplete="off" proMask="00000-000">
+                          <input type="text" formControlName="cep" placeholder="00000-000" autocomplete="off" proMask="00000-000">
                         </pro-input-container>
                       </label>
           </div>
@@ -110,29 +110,28 @@
           </div>
 
         </div>
-
         <div class="mid">
           <div class="mid-container-3">
             <label><span>Pagamento</span>
-                          <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="pgt">
-                            <input type="tel" formControlName="pgt" placeholder="(00)0000-0000" autocomplete="off">
-                          </pro-input-container>
-                        </label>
+              <select formControlName="pgt">
+                <option *ngFor="let pagamento of pagamentos" [value]="pagamento.value">{{pagamento.label}}</option>
+              </select>
+            </label>
           </div>
 
           <div class="mid-container-3">
-            <label><span>Início</span>
-                      <pro-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="inicio">
-                        <input type="text" formControlName="inicio" >
-                      </pro-input-container>
-                    </label>
+            <label>
+              <span>Categ.</span>
+              <select formControlName="categ">
+                  <option *ngFor="let categoria of categorias" [value]="categoria.value">{{categoria.label}}</option>
+               </select>
+            </label>
           </div>
+
           <div class="mid-container-3">
-            <label><span>Categ.</span>
-                      <pro-input-container >
-                        <input type="text" formControlName="categ" placeholder="" autocomplete="off">
-                      </pro-input-container>
-                    </label>
+            <label><span>Data Cadastro</span>
+                <input type="text" formControlName="inicio" value="{{ date | date:'dd/MM/yyyy' }}" disabled>
+            </label>
           </div>
         </div>
 

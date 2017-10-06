@@ -1,3 +1,4 @@
+import { MaskDirective } from './../mask/mask.directive';
 import { FiltroPipe } from './../filters/filtro.pipe';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CreateUserComponent } from './create-user/create-user.component';
@@ -14,7 +15,7 @@ const ROUTES: Routes = [
 ]
 
 @NgModule({
-  declarations:[UsersComponent,CreateUserComponent,ListUsersComponent,FiltroPipe],
+  declarations:[UsersComponent,CreateUserComponent,ListUsersComponent,FiltroPipe, MaskDirective],
   imports: [SharedModule, RouterModule.forChild(ROUTES)]
 })
 export class UsersModule { }

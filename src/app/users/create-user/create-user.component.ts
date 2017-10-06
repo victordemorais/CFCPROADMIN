@@ -11,12 +11,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-  numberPattern = /^[0-9]*$/;
 
   UserForm: FormGroup;
   endereco: any[] = [];
+
+  pagamentos: any[] = [
+    {label: 'Dinheiro', value: 'MON'},
+    {label: 'Cartão de Débito', value: 'DEB'},
+    {label: 'Cartão Refeição', value: 'REF'}
+  ]
+  categorias: any[] = [
+    {label: 'Carro', value: 'B'},
+    {label: 'Moto', value: 'A'},
+    {label: 'Ônibus', value: 'D'}
+  ]
+  date:Date = new Date();
+  
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -26,12 +37,12 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() {
     this.UserForm = this.formBuilder.group({
       name: this.formBuilder.control('', [Validators.required, Validators.minLength(3)]),
-      rg: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-      cpf: this.formBuilder.control('', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]),
+      rg: this.formBuilder.control('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+      cpf: this.formBuilder.control('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
       cep: this.formBuilder.control('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
       num: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
-      tel: this.formBuilder.control('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
-      cel: this.formBuilder.control('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
+      tel: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+      cel: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       address: this.formBuilder.control('', Validators.required),
       bairro: this.formBuilder.control('', Validators.required),
      
@@ -64,6 +75,6 @@ export class CreateUserComponent implements OnInit {
       (userValue) => console.log(userValue)
     );
   }
-
+ 
 
 }
