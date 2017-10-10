@@ -1,0 +1,15 @@
+    <form [formGroup]="AgendaAluno" name="AgendaAluno" novalidate>
+            {{AgendaAluno.value | json }}
+            <input 
+            type="text" 
+            class="form-control"
+            placeholder="dd/mm/yyyy"
+            id="pikadayDataId"
+            name="pikadayData"
+            formControlName="data"
+            kzPikaday="pikadayDataId">
+            <input type="button" name="Enviar" (click)="preverAgenda()" value="Enviar"/>
+          </form>
+          <div *ngIf="mostrar">
+            TESTE
+          </div>

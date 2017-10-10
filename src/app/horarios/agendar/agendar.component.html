@@ -1,0 +1,17 @@
+<div id="conteudo">
+  <div class="article principal">
+    <label class="header-article">Horários</label>
+    <form [formGroup]="AgendaAluno" name="AgendaAluno" novalidate>
+      {{AgendaAluno.value | json }}
+      <div>
+      <input class="autocomplete" ngui-auto-complete formControlName="aluno" [source]="users" [list-formatter]="autocompleListFormatter"
+          value-property-name="id" display-property-name="nome" placeholder="teste">
+        <button type="submit">Submit</button>
+      </div>
+      <input type="date" formControlName="data">
+     
+    </form>
+<pro-datepicker ></pro-datepicker>
+
+  </div>
+</div>

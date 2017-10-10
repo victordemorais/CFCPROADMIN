@@ -9,13 +9,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 const ROUTES: Routes = [
-  {path:'', component: UsersComponent},
-  {path:'cadastrar', component: CreateUserComponent},
-  {path:'listar', component: ListUsersComponent}
+  { path: '', component: UsersComponent },
+  { path: 'cadastrar', component: CreateUserComponent },
+  { path: 'listar', component: ListUsersComponent }
 ]
 
 @NgModule({
-  declarations:[UsersComponent,CreateUserComponent,ListUsersComponent,FiltroPipe, MaskDirective],
-  imports: [SharedModule, RouterModule.forChild(ROUTES)]
+  declarations: [UsersComponent, CreateUserComponent, ListUsersComponent, FiltroPipe, MaskDirective],
+  imports: [
+    SharedModule, RouterModule.forChild(ROUTES)]
 })
 export class UsersModule { }

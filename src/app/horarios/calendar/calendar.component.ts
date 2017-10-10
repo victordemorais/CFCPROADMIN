@@ -1,5 +1,11 @@
+import { CalendarModel } from './calendar.model';
+import { PRO_API } from './../../app.api';
+import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import { CalendarEvent } from 'angular-calendar';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import {
   startOfDay,
   endOfDay,
@@ -32,30 +38,42 @@ const colors: any = {
 export class CalendarComponent implements OnInit {
   view = 'month';
   viewDate: Date = new Date();
-  events: CalendarEvent[] = [
-    
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
-
+  refresh: Subject<any> = new Subject();
+  events: CalendarEvent[] = [];
   activeDayIsOpen: boolean = true;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.getHorario().subscribe(
+      data => {
+        let listaTarefa:  Array<CalendarEvent> = new Array<CalendarEvent>();
+        if (data.length > 0) {
+          data.forEach(tarefa => {
+              let evt:CalendarEvent = {
+                  start: new Date(tarefa.start),
+                  end: new Date(tarefa.end),
+                  title: tarefa.title,
+                  color: colors.yellow,
+                  meta: {tarefa},
+              };
+  
+              listaTarefa.push(evt);
+          });
+          
+        } 
+        console.log(listaTarefa)
+        this.events=(listaTarefa);
+        this.refresh.next();
+      }
+    );
+   
+
   }
 
+  getHorario(): Observable<any> {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`http://localhost/testeaula/server/src/horario.php`);
+  }
 }

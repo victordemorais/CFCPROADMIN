@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'questoes', component: CreateComponent },
   { path: 'users', loadChildren: './users/users.module#UsersModule'},
-  { path: 'horarios', component: HorariosComponent }
+  { path: 'horarios', loadChildren: './horarios/horarios.module#HorariosModule'},
 
 
 

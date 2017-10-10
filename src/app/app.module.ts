@@ -1,3 +1,4 @@
+import { HorariosModule } from './horarios/horarios.module';
 import { UsersModule } from './users/users.module';
 import { CalendarModule } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +31,6 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
     HomeComponent,
     CreateComponent,
     HorariosComponent,
-    CalendarComponent,
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +40,7 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
     BrowserAnimationsModule,
     UsersModule,
     SharedModule.forRoot(),
-    CalendarModule.forRoot()
+    HorariosModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]

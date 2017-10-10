@@ -1,3 +1,4 @@
+import { SafeHtml } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../user.model';
 import { UserService } from '../user.service';
@@ -6,11 +7,12 @@ import { UserService } from '../user.service';
   templateUrl: './list-users.component.html',
   styleUrls: ['./list-users.component.css']
 })
-export class ListUsersComponent implements OnInit {
-  users: UserModel[];
-  constructor(private userService: UserService) {
 
-  }
+export class ListUsersComponent implements OnInit {
+
+
+  users: UserModel[];
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.users()
@@ -23,5 +25,5 @@ export class ListUsersComponent implements OnInit {
     console.log(user);
   }
 
-
 }
+

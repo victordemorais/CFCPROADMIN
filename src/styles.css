@@ -338,3 +338,12 @@ table.responsive-table{
     width:100%;
     float:left;
 }
+
+.ngui-auto-complete > ul{
+    max-height: 250px !important;
+    border-radius:0 0 10px 10px !important;
+}
+.ngui-auto-complete > ul li{
+padding:6px !important;
+border-bottom: 1px solid #ccc !important;
+}
