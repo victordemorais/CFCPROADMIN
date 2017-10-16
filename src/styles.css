@@ -7,9 +7,9 @@
     line-height: 1.2;
     letter-spacing: 0em;
     font-weight: 400;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -wekit-box-sizing: border-box;
+    box-sizing: border-box !important;
+    -moz-box-sizing: border-box!important;
+    -wekit-box-sizing: border-box!important;
      
 }
 body{
@@ -124,8 +124,8 @@ button{outline: 0;}
     width: 49.5%;
     margin-right:1%;
 }
-.content-dash .article:last-of-type,
-.mid .mid-container-2:last-of-type{
+.content-dash .article:nth-child(2n),
+.mid .mid-container-2:nth-child(2n){
     margin-right: 0 !important;
     float:right;
 }
@@ -135,7 +135,7 @@ button{outline: 0;}
     margin-right:1%;
     
     }
-.mid .mid-container-3:last-of-type{
+.mid .mid-container-3:nth-child(3n){
     float:right !important;
     margin-right:0%;
 }
@@ -143,7 +143,7 @@ button{outline: 0;}
 width:24.2%;
 margin-right:1%;
 
-}.content-options .article:last-of-type{
+}.content-options .article:nth-child(4n){
 margin-right:0 !important;
 float:right !important;
 }
@@ -155,7 +155,9 @@ float:right !important;
     float:left;
     width:100%;
 }
-#formQuestion label{
+#formQuestion label ,
+#formAgenda label
+{
     display: block;
     margin: 0px 0px 15px 0px;
 }
@@ -165,10 +167,29 @@ float:right !important;
     padding-top: 8px;
     padding-right: 5px;
 }
+#formAgenda label > span{
+    width: 130px;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+}
  #formQuestion input, #formQuestion select, #formQuestion textarea{
     width: calc(100% - 100px);
-    
 }
+#formAgenda input, #formAgenda select, #formAgenda textarea{
+ width: calc(100% - 130px)!important;
+    float:left;
+
+}
+#formAgenda input[type='button']
+{
+float: initial !important;
+width:initial !important;
+}
+.input-full{
+ width: calc(100% - 130px)!important;
+ }
+
 
 input, select,textarea{
     box-sizing: border-box;
@@ -190,12 +211,7 @@ input, select,textarea{
 .has-error input:focus{
     border:1px solid red;
 }
-.has-success{
-    color:#1FE639;
-}
-.has-error{
-    color:red;
-}
+
 input:focus,select:focus,textarea:focus{
     border: 1px solid #3f51b5;
 }
@@ -219,6 +235,9 @@ input:focus,select:focus,textarea:focus{
  button:hover{
     background: #303f9f;
     color: #fff;
+}
+#formAgenda .ngui-auto-complete > ul{
+    margin-left:130px !important;
 }
 .drop  {
   display:none
@@ -328,11 +347,12 @@ table.responsive-table{
 .esquerda{
     float:right;
 }
-.header-center{
-    width:100%;
-    float:left;
-    text-align: center;
-    text-transform: uppercase;
+.center{
+margin-top:20px;
+    width:100% !important;
+    float:left !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
 }
 .cabecalho{
     width:100%;
@@ -346,4 +366,21 @@ table.responsive-table{
 .ngui-auto-complete > ul li{
 padding:6px !important;
 border-bottom: 1px solid #ccc !important;
+}
+
+.text-calendar .calendar{
+    width: 30px !important;
+    height: 33px;
+    position: absolute;
+    margin-left: -31px;
+    margin-top: 1px;
+    padding: 7px;
+    border-left: 1px solid #cacbd8;
+    border-radius: 0px 3px 3px 0px;
+    background-color: #edf0f5;
+ 
+}
+.full{
+width:100%;
+float:left;
 }

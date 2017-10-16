@@ -1,15 +1,22 @@
-    <form [formGroup]="AgendaAluno" name="AgendaAluno" novalidate>
-            {{AgendaAluno.value | json }}
-            <input 
-            type="text" 
-            class="form-control"
-            placeholder="dd/mm/yyyy"
-            id="pikadayDataId"
-            name="pikadayData"
-            formControlName="data"
-            kzPikaday="pikadayDataId">
-            <input type="button" name="Enviar" (click)="preverAgenda()" value="Enviar"/>
-          </form>
-          <div *ngIf="mostrar">
-            TESTE
-          </div>
+<form [formGroup]="AgendaAluno" name="AgendaAluno" novalidate>
+  {{AgendaAluno.value | json }}
+  <div class="text-calendar">
+    <input type="text" readonly class="form-control" placeholder="dd/mm/yyyy" id="pikadayDataId" name="pikadayData" formControlName="data"
+      kzPikaday="pikadayDataId">
+    <span class="calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+  </div>
+  <input type="button" name="Enviar" (click)="preverAgenda(AgendaAluno.value)" value="Enviar" />
+</form>
+<form *ngIf="mostrar" #formDatas="ngForm" (ngSubmit)="submit(formDatas)" style="margin-top:10px">
+
+  <div class="content-options">
+    <div class="article" *ngFor="let date of dates;let i = index">
+        {{date |  date :'dd/MM/yyyy'}}
+      <div class="text-calendar">
+        <input type="text" placeholder="dd/mm/yyyy" readonly  id="pikadayDataId{{i}}" name="aula{{i}}" ngModel kzPikaday="pikadayDataId{{i}}">
+        <span class="calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+  <input type="submit" value="enviar">
+</form>

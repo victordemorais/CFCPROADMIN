@@ -1,17 +1,85 @@
 <div id="conteudo">
   <div class="article principal">
     <label class="header-article">Horários</label>
-    <form [formGroup]="AgendaAluno" name="AgendaAluno" novalidate>
+    <form [formGroup]="AgendaAluno" name="AgendaAluno" id="formAgenda" novalidate>
       {{AgendaAluno.value | json }}
-      <div>
-      <input class="autocomplete" ngui-auto-complete formControlName="aluno" [source]="users" [list-formatter]="autocompleListFormatter"
-          value-property-name="id" display-property-name="nome" placeholder="teste">
-        <button type="submit">Submit</button>
+
+      <label>
+        <span>Nome</span>
+        <pro-input-container errorMessage="Campo obrigatório,no mínimo 2 caracteres" label="Nome">
+          <input class="autocomplete input-full" ngui-auto-complete formControlName="aluno" [source]="users" [list-formatter]="autocompleListFormatter"
+            value-property-name="id" display-property-name="nome" placeholder="teste">
+        </pro-input-container>
+      </label>
+      <div class="mid">
+        <div class="mid-container-3">
+          <div class="text-calendar">
+            <label>
+              <span>Data de Início</span>
+              <input type="text" style="width:100%;" readonly placeholder="dd/mm/yyyy" id="pikadayDataId" name="pikadayData" formControlName="data"
+                kzPikaday="pikadayDataId">
+              <span class="calendar">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="mid-container-3">
+
+          <div class="text-calendar">
+            <label>
+              <span>Horário Início</span>
+              <select formControlName="hourStart">
+                <option value="" selected>Selecione</option>
+                <option *ngFor="let horario of horarios" [value]="horario.value">{{horario.label}}</option>
+              </select>
+              <span class="calendar">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mid-container-3">
+
+          <div class="text-calendar">
+            <label>
+              <span>Horário Término</span>
+              <select formControlName="hourEnd">
+                <option value="" selected>Selecione</option>
+                <option *ngFor="let horario of horarios" [value]="horario.value">{{horario.label}}</option>
+                <option value="22:00:00">22:00</option>
+              </select>
+              <span class="calendar">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              </span>
+            </label>
+          </div>
+        </div>
       </div>
-      <input type="date" formControlName="data">
-     
+
+      <span class="center">
+        <input type="button" name="Enviar" (click)="preverAgenda(AgendaAluno.value)" value="Enviar" />
+      </span>
     </form>
-<pro-datepicker ></pro-datepicker>
+
+    <form *ngIf="mostrar" #formDatas="ngForm" (ngSubmit)="submit(formDatas)" style="float:left;margin-top:20px">
+      <div class="content-options">
+        <div class="article" *ngFor="let date of dates;let i = index">
+          {{date | date :'dd/MM/yyyy'}}
+          <div class="text-calendar">
+            <input type="text" placeholder="dd/mm/yyyy" readonly id="pikadayDataId{{i}}" name="aula{{i}}" ngModel kzPikaday="pikadayDataId{{i}}">
+            <span class="calendar">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <span class="center">
+        <input type="submit" value="Enviar">
+      </span>
+    </form>
 
   </div>
 </div>
